@@ -75,8 +75,8 @@
                 </Text>
                 <TextArea fx:id="courseInfoArea" prefHeight="122.0" prefWidth="180.0" />
                 <ListView fx:id="courseStudentsList" prefHeight="445.0" prefWidth="180.0" />
-                <TextField fx:id="studentName(course)" promptText="student name" />
-                <TextField fx:id="studentId(course)" promptText="student id" />
+                <TextField fx:id="studentName_course" promptText="student name" />
+                <TextField fx:id="studentId_course" promptText="student id" />
                 <Button mnemonicParsing="false"  prefHeight="26.0" prefWidth="199.0" text="+add student to course" textFill="#1197a1" />
                 <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="197.0" text="-remove student from course" textFill="#1197a1" />
             </VBox>

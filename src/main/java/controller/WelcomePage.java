@@ -17,7 +17,7 @@ public class WelcomePage {
     }
 
     public void departmentMode(MouseEvent mouseEvent) {
-        ProgramController.changeMenu("departmentMoode");
+        ProgramController.changeMenu("departmentMode");
     }
 
     public void exit(MouseEvent mouseEvent) {
