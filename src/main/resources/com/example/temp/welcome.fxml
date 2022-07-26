@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="720" prefWidth="1280" fx:id="pane" stylesheets="@style.css" xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml" fx:controller="controller.WelcomePage">
+    <center>
+        <VBox fx:id="vBox" alignment="CENTER" maxWidth="350" spacing="10">
+            <Button onMouseClicked="#godMode" text="god mode"/>
+            <Button onMouseClicked="#studentMode" text="student mode"/>
+            <Button onMouseClicked="#ProfessorMode" text="professor mode"/>
+            <Button onMouseClicked="#departmentMode" text="department mode"/>
+            <Button onMouseClicked="#exit" text="exit program"/>
+        </VBox>
+    </center>
+</BorderPane>

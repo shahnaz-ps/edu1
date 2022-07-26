@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="720" prefWidth="1280" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GodModePage">
+    <top>
+        <HBox alignment="CENTER" maxWidth="759.0" prefHeight="26.0" prefWidth="759.0" spacing="10">
+            <Button onMouseClicked="#welcomePage" text="welcome page" />
+            <Button onMouseClicked="#studentMode" text="student mode" />
+            <Button onMouseClicked="#ProfessorMode" text="professor mode" />
+            <Button onMouseClicked="#departmentMode" text="department mode" />
+        </HBox>
+    </top>
+    <center>
+        <HBox alignment="CENTER" maxWidth="1000.0" prefHeight="374.0" prefWidth="1000.0" spacing="10">
+            <VBox fx:id="studentsVbox" prefHeight="200.0" prefWidth="180.0">
+                <Text fill="6f0b70" text="students panel" textAlignment="CENTER" wrappingWidth="180">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </Text>
+            <ListView fx:id="studentList" prefHeight="590.0" prefWidth="180.0" onMousePressed="#showStudentInfo" />
+            <TextField fx:id="studentName" promptText="student name" />
+            <TextField fx:id="studentId" promptText="student id" />
+            <DatePicker fx:id="studentBirth" promptText="date of birth" />
+            <Label prefHeight="17.0" prefWidth="184.0" text="choose department" />
+            <ChoiceBox fx:id="studentDepartment" prefHeight="26.0" prefWidth="183.0" />
+            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="205.0" text="+add" textFill="#1197a1" onAction="#addStudent" />
+            </VBox>
+            <VBox fx:id="professorsVbox" prefHeight="200.0" prefWidth="180.0">
+                <Text fill="6f0b70" text="professors panel" textAlignment="CENTER" wrappingWidth="180">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </Text>
+            <ListView fx:id="professorList" prefHeight="558.0" prefWidth="180.0" onMousePressed="#showProfessorInfo" />
+            <TextField fx:id="professorName" promptText="professor name" />
+            <DatePicker fx:id="professorBirth" promptText="date of birth" />
+            <Label prefHeight="17.0" prefWidth="196.0" text="choose department" />
+            <ChoiceBox fx:id="professorDepartment" prefHeight="26.0" prefWidth="198.0" />
+            <Label prefHeight="17.0" prefWidth="191.0" text="choose rank" />
+            <ChoiceBox fx:id="professorRank" prefHeight="26.0" prefWidth="191.0" />
+            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="217.0" text="+add" textFill="#1197a1" onAction="#addProfessor" />
+            </VBox>
+            <VBox fx:id="courseVbox" prefHeight="200.0" prefWidth="180.0">
+                <Text fill="6f0b70" text="course panel" textAlignment="CENTER" wrappingWidth="180">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </Text>
+            <ListView fx:id="courseList" prefHeight="546.0" prefWidth="180.0" onMousePressed="#showCourseInfo" />
+            <TextField fx:id="courseName" promptText="course name" />
+            <Label prefHeight="17.0" prefWidth="196.0" text="choose department" />
+            <ChoiceBox fx:id="courseDepartment" prefHeight="26.0" prefWidth="217.0" />
+            <Label prefHeight="17.0" prefWidth="188.0" text="choose professor" />
+            <ChoiceBox fx:id="courseProfessor" prefHeight="26.0" prefWidth="213.0" />
+            <Label prefHeight="17.0" prefWidth="197.0" text="choose unit" />
+            <ChoiceBox fx:id="courseUnit" prefHeight="26.0" prefWidth="209.0" />
+            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="210.0" text="+add" textFill="#1197a1" onAction="#addCourse" />
+            </VBox>
+            <VBox fx:id="departmentVbox" prefHeight="200.0" prefWidth="180.0">
+               <Text fill="6f0b70" text="department panel" textAlignment="CENTER" wrappingWidth="180">
+                   <font>
+                       <Font size="12.0" />
+                   </font>
+               </Text>
+            <ListView fx:id="departmentList" prefHeight="648.0" prefWidth="180.0" onMousePressed="#showDepartmentInfo" />
+            <TextField fx:id="departmentName" promptText="department name" />
+            <TextField fx:id="departmentId" promptText="department id" />
+            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="199.0" text="+add" textFill="#1197a1" onAction="#addDepartment" />
+            </VBox>
+            <VBox fx:id="infoVbox" prefHeight="200.0" prefWidth="180.0">
+                <Text fill="6f0b70" text="info panel" textAlignment="CENTER" wrappingWidth="180">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </Text>
+            <TextArea fx:id="infoArea" prefHeight="703.0" prefWidth="180.0" />
+            </VBox>
+        </HBox>
+    </center>
+</BorderPane>
