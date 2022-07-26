@@ -74,11 +74,11 @@
                     </font>
                 </Text>
                 <TextArea fx:id="courseInfoArea" prefHeight="122.0" prefWidth="180.0" />
-                <ListView fx:id="courseStudentsList" prefHeight="445.0" prefWidth="180.0" />
+                <ListView fx:id="courseStudentsList" onMousePressed="#showStudentInfo2" prefHeight="445.0" prefWidth="180.0" />
                 <TextField fx:id="studentName_course" promptText="student name" />
                 <TextField fx:id="studentId_course" promptText="student id" />
-                <Button mnemonicParsing="false"  prefHeight="26.0" prefWidth="199.0" text="+add student to course" textFill="#1197a1" />
-                <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="197.0" text="-remove student from course" textFill="#1197a1" />
+                <Button mnemonicParsing="false" onAction="#addStudentToCourse" prefHeight="26.0" prefWidth="199.0" text="+add student to course" textFill="#1197a1" />
+                <Button mnemonicParsing="false" onAction="#removeStudentFromCourse" prefHeight="26.0" prefWidth="197.0" text="-remove student from course" textFill="#1197a1" />
             </VBox>
             <VBox fx:id="infoVbox" prefHeight="200.0" prefWidth="180.0">
                 <Text fill="6f0b70" text="info panel" textAlignment="CENTER" wrappingWidth="180">
