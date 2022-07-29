@@ -19,9 +19,9 @@
                     <Font size="32.0" />
                 </font>
             </Text>
-            <TextField fx:id="name" promptText="professor name"/>
-            <TextField fx:id="id" promptText="department id"/>
-            <Button onMouseClicked="#submit" text="submit" />
+            <TextField fx:id="professorName" promptText="professor name"/>
+            <TextField fx:id="departmentName" promptText="department name" />
+            <Button onMouseClicked="#login" text="login"  />
         </HBox>
     </top>
     <center>
@@ -32,13 +32,7 @@
                         <Font size="12.0" />
                     </font>
                 </Text>
-            </VBox>
-            <VBox fx:id="coursesInfoVbox" prefHeight="200.0" prefWidth="180.0">
-                <Text fill="6f0b70" text="course info" textAlignment="CENTER" wrappingWidth="180">
-                    <font>
-                        <Font size="12.0" />
-                    </font>
-                </Text>
+                <TextArea fx:id="professorInfoArea" prefHeight="663.0" prefWidth="180.0" />
             </VBox>
             <VBox fx:id="allProfessorVbox" prefHeight="200.0" prefWidth="180.0">
                 <Text fill="6f0b70" text="all professors" textAlignment="CENTER" wrappingWidth="180">
@@ -46,6 +40,40 @@
                         <Font size="12.0" />
                     </font>
                 </Text>
+                <ListView fx:id="allProfessorsList" prefHeight="456.0" prefWidth="180.0" onMousePressed="#showProfessorInfo" />
+                <TextArea fx:id="allProfessorsInfoArea" prefHeight="187.0" prefWidth="180.0" />
+            </VBox>
+            <VBox fx:id="coursesVbox" prefHeight="200.0" prefWidth="180.0">
+                <Text fill="6f0b70" text="course panel" textAlignment="CENTER" wrappingWidth="180">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </Text>
+                <ListView fx:id="coursesList" prefHeight="712.0" prefWidth="180.0" onMousePressed="#showCourseInfo" />
+                <TextField fx:id="courseName" promptText="course name" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="choose credit :" />
+                <ChoiceBox fx:id="courseUnit" prefHeight="26.0" prefWidth="183.0" />
+                <Button  mnemonicParsing="false" prefHeight="26.0" prefWidth="188.0" text="+add new course" textFill="#1197a1" onAction="#addCourse" />
+            </VBox>
+            <VBox fx:id="courseInfoPanel" prefHeight="656.0" prefWidth="186.0">
+                <children>
+                    <Text fill="#6f0b70" strokeType="OUTSIDE" strokeWidth="0.0" text="course info panel" textAlignment="CENTER" wrappingWidth="197.21630859375" />
+                    <TextArea fx:id="courseInfoArea" prefHeight="121.0" prefWidth="198.0" />
+                    <ListView fx:id="courseStudentsList" prefHeight="454.0" prefWidth="198.0" />
+                    <TextField fx:id="studentName" promptText="student name" />
+                    <TextField fx:id="studentId" promptText="student id" />
+                    <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="202.0" text="-remove student from course" textFill="#1197a1" onAction="#removeStudentFromCourse" />
+                </children>
+            </VBox>
+            <VBox fx:id="gradeReportPanel" prefHeight="656.0" prefWidth="185.0">
+                <children>
+                    <Text fill="#6f0b70" strokeType="OUTSIDE" strokeWidth="0.0" text="set mark panel" textAlignment="CENTER" wrappingWidth="197.21630859375" />
+                    <TextField promptText="student name" />
+                    <TextField promptText="student id" />
+                    <TextField promptText="course name" />
+                    <TextField promptText="score" />
+                    <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="208.0" text="set mark" textFill="#1197a1" />
+                </children>
             </VBox>
         </HBox>
     </center>

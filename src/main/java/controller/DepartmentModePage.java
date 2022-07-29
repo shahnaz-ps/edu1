@@ -65,23 +65,6 @@ public class DepartmentModePage {
         for (int i = 1; i <= 6; i++) {
             courseUnit.getItems().add(i);
         }
-//        for (Student student : getLoggedInDepartment().getStudents()) {
-//            studentList.getItems().add(student.getName());
-//        }
-//        for (Professor professor : getLoggedInDepartment().getProfessors()) {
-//            professorList.getItems().add(professor.getName());
-//            courseProfessor.getItems().add(professor.getName());
-//        }
-//        for (Course course : getLoggedInDepartment().getCourses()) {
-//            courseList.getItems().add(course.getName());
-//        }
-
-//        for (Department department : dataBase.getDepartments()) {
-//            departmentList.getItems().add(department.getName());
-//            studentDepartment.getItems().add(department.getName());
-//            professorDepartment.getItems().add(department.getName());
-//            courseDepartment.getItems().add(department.getName());
-//        }
     }
 
     public void login(MouseEvent mouseEvent) {
