@@ -9,6 +9,7 @@ public class DataBase {
     private ArrayList<Professor> professors = new ArrayList<>();
     private ArrayList<Department> departments = new ArrayList<>();
     private ArrayList<Course> courses = new ArrayList<>();
+    private ArrayList<GradeReport> gradeReports = new ArrayList<>();
 
 
     private DataBase() {
@@ -49,5 +50,13 @@ public class DataBase {
 
     public void setCourses(ArrayList<Course> courses) {
         this.courses = courses;
+    }
+
+    public ArrayList<GradeReport> getGradeReports() {
+        return gradeReports;
+    }
+
+    public void setGradeReports(ArrayList<GradeReport> gradeReports) {
+        this.gradeReports = gradeReports;
     }
 }

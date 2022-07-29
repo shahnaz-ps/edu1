@@ -68,11 +68,11 @@
             <VBox fx:id="gradeReportPanel" prefHeight="656.0" prefWidth="185.0">
                 <children>
                     <Text fill="#6f0b70" strokeType="OUTSIDE" strokeWidth="0.0" text="set mark panel" textAlignment="CENTER" wrappingWidth="197.21630859375" />
-                    <TextField promptText="student name" />
-                    <TextField promptText="student id" />
-                    <TextField promptText="course name" />
-                    <TextField promptText="score" />
-                    <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="208.0" text="set mark" textFill="#1197a1" />
+                    <TextField fx:id="studentName_report" promptText="student name" />
+                    <TextField fx:id="studentId_report" promptText="student id" />
+                    <TextField fx:id="courseName_report" promptText="course name" />
+                    <TextField fx:id="score" promptText="score" />
+                    <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="208.0" text="set mark" textFill="#1197a1" onAction="#gradeReport" />
                 </children>
             </VBox>
         </HBox>

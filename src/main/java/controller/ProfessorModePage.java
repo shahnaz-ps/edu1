@@ -25,6 +25,10 @@ public class ProfessorModePage {
     public ChoiceBox courseUnit;
     public TextField studentName;
     public TextField studentId;
+    public TextField studentName_report;
+    public TextField studentId_report;
+    public TextField courseName_report;
+    public TextField score;
     @FXML
     private VBox infoVbox;
 
@@ -58,7 +62,7 @@ public class ProfessorModePage {
     }
 
     public void initialize() {
-        for (int i=1; i<=6; i++){
+        for (int i = 1; i <= 6; i++) {
             courseUnit.getItems().add(i);
         }
     }
@@ -91,7 +95,9 @@ public class ProfessorModePage {
         professorInfoArea.setText(professorInfo);
 
         for (Professor professor1 : professor.getDepartment().getProfessors()) {
-            allProfessorsList.getItems().add(professor1.getName());
+            if (professor1 != getLoggedInProfessor()) {
+                allProfessorsList.getItems().add(professor1.getName());
+            }
         }
         for (Course course : professor.getCourses()) {
             coursesList.getItems().add(course.getName());
@@ -122,10 +128,10 @@ public class ProfessorModePage {
 
     public void addCourse(ActionEvent actionEvent) {
         String name = courseName.getText();
-        if (courseUnit.getValue()!=null){
+        if (courseUnit.getValue() != null) {
             int credit = Integer.parseInt(courseUnit.getValue().toString());
-            if (!name.equals("")){
-                Course course = new Course(name,credit,getLoggedInProfessor().getDepartment(),getLoggedInProfessor());
+            if (!name.equals("")) {
+                Course course = new Course(name, credit, getLoggedInProfessor().getDepartment(), getLoggedInProfessor());
                 dataBase.getCourses().add(course);
                 getLoggedInProfessor().getCourses().add(course);
                 getLoggedInProfessor().getDepartment().getCourses().add(course);
@@ -154,5 +160,26 @@ public class ProfessorModePage {
         }
         studentName.clear();
         studentId.clear();
+    }
+
+    public void gradeReport(ActionEvent actionEvent) {
+        String studentName = studentName_report.getText();
+        String studentId = studentId_report.getText();
+        String courseName = courseName_report.getText();
+        if (!studentName.equals("") && !studentId.equals("") && !courseName.equals("") && !score.getText().equals("")) {
+            double grade = Double.parseDouble(score.getText());
+            Student student = Student.getStudentByName(studentName);
+            if (student.getId().equals(studentId)) {
+                Course course = Course.getCourseByName(courseName);
+                if (course.getProfessor() == getLoggedInProfessor() && course.getStudents().contains(student)) {
+                    GradeReport gradeReport = new GradeReport(student, course, grade);
+                    dataBase.getGradeReports().add(gradeReport);
+                }
+            }
+        }
+        studentId_report.clear();
+        studentName_report.clear();
+        courseName_report.clear();
+        score.clear();
     }
 }

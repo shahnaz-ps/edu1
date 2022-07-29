@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import model.Course;
 import model.DataBase;
+import model.GradeReport;
 import model.Student;
 
 public class StudentModePage {
@@ -20,6 +21,7 @@ public class StudentModePage {
     public TextArea courseInfoArea;
     public TextField name;
     public TextField id;
+    public TextArea gradeArea;
 
     DataBase dataBase = DataBase.getInstance();
 
@@ -28,12 +30,13 @@ public class StudentModePage {
     public void setLoggedInStudent(Student loggedInStudent) {
         this.loggedInStudent = loggedInStudent;
     }
+
     public Student getLoggedInStudent() {
         return loggedInStudent;
     }
 
 
-    public void initialize(){
+    public void initialize() {
         for (Course course : dataBase.getCourses()) {
             allCourses.getItems().add(course.getName());
         }
@@ -71,8 +74,8 @@ public class StudentModePage {
         String studentName = name.getText();
         String studentId = id.getText();
         Student student = Student.getStudentByName(studentName);
-        if (student != null){
-            if (student.getId().equals(studentId)){
+        if (student != null) {
+            if (student.getId().equals(studentId)) {
                 setLoggedInStudent(student);
                 loggedIn(student);
             }
@@ -82,7 +85,7 @@ public class StudentModePage {
     }
 
     private void loggedIn(Student student) {
-        String studentInfo =  "name : " + student.getName() + "\n"
+        String studentInfo = "name : " + student.getName() + "\n"
                 + "id : " + student.getId() + "\n"
                 + "date of birth : " + student.getBirth().toString() + "\n"
                 + "department : " + student.getDepartment().getName() + "\n"
@@ -92,14 +95,22 @@ public class StudentModePage {
         for (Course course : getLoggedInStudent().getCourses()) {
             courseList.getItems().add(course.getName());
         }
+
+        String report = "";
+        for (GradeReport gradeReport : dataBase.getGradeReports()) {
+            if (gradeReport.getStudent() == getLoggedInStudent()) {
+                report += gradeReport.getCourse().getName() + " : " + gradeReport.getGrade();
+            }
+        }
+        gradeArea.setText(report);
     }
 
     public void takeCourse(ActionEvent actionEvent) {
         Course course = Course.getCourseByName(allCourses.getValue().toString());
-        if (!getLoggedInStudent().getCourses().contains(course)){
+        if (!getLoggedInStudent().getCourses().contains(course)) {
             course.getStudents().add(getLoggedInStudent());
             getLoggedInStudent().getCourses().add(course);
-            getLoggedInStudent().setCredit(getLoggedInStudent().getCredit()+course.getCredit());
+            getLoggedInStudent().setCredit(getLoggedInStudent().getCredit() + course.getCredit());
             courseList.getItems().add(course.getName());
         }
         allCourses.setValue(null);

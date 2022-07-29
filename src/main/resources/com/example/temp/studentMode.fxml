@@ -36,7 +36,7 @@
             </VBox>
             <VBox fx:id="gradesVbox" prefHeight="656.0" prefWidth="173.0">
                <Text fill="#6f0b70" strokeType="OUTSIDE" strokeWidth="0.0" text="grades" textAlignment="CENTER" wrappingWidth="199.21630859375" />
-               <TextArea prefHeight="665.0" prefWidth="200.0" />
+               <TextArea fx:id="gradeArea" prefHeight="665.0" prefWidth="200.0" />
             </VBox>
             <VBox fx:id="coursesInfoVbox" prefHeight="200.0" prefWidth="180.0">
                 <Text fill="6f0b70" text="courses" textAlignment="CENTER" wrappingWidth="180">
