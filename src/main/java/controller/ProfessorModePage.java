@@ -114,6 +114,7 @@ public class ProfessorModePage {
     }
 
     public void showCourseInfo(MouseEvent mouseEvent) {
+        courseStudentsList.getItems().clear();
         courseInfoArea.clear();
         Course course = Course.getCourseByName(coursesList.getSelectionModel().getSelectedItem().toString());
         String courseInfo = "name : " + course.getName() + "\n"
