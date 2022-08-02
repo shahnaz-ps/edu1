@@ -169,12 +169,14 @@ public class ProfessorModePage {
         String courseName = courseName_report.getText();
         if (!studentName.equals("") && !studentId.equals("") && !courseName.equals("") && !score.getText().equals("")) {
             double grade = Double.parseDouble(score.getText());
-            Student student = Student.getStudentByName(studentName);
-            if (student.getId().equals(studentId)) {
-                Course course = Course.getCourseByName(courseName);
-                if (course.getProfessor() == getLoggedInProfessor() && course.getStudents().contains(student)) {
-                    GradeReport gradeReport = new GradeReport(student, course, grade);
-                    dataBase.getGradeReports().add(gradeReport);
+            if (grade>0 && grade<20){
+                Student student = Student.getStudentByName(studentName);
+                if (student.getId().equals(studentId)) {
+                    Course course = Course.getCourseByName(courseName);
+                    if (course.getProfessor() == getLoggedInProfessor() && course.getStudents().contains(student)) {
+                        GradeReport gradeReport = new GradeReport(student, course, grade);
+                        dataBase.getGradeReports().add(gradeReport);
+                    }
                 }
             }
         }
