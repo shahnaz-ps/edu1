@@ -3,10 +3,7 @@ package controller;
 import controller.ProgramController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -169,7 +166,7 @@ public class ProfessorModePage {
         String courseName = courseName_report.getText();
         if (!studentName.equals("") && !studentId.equals("") && !courseName.equals("") && !score.getText().equals("")) {
             double grade = Double.parseDouble(score.getText());
-            if (grade>0 && grade<20){
+            if (grade > 0 && grade < 20) {
                 Student student = Student.getStudentByName(studentName);
                 if (student.getId().equals(studentId)) {
                     Course course = Course.getCourseByName(courseName);
