@@ -1,78 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controller.ProfessorModePage"
-            prefHeight="720" prefWidth="1280">
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="720" prefWidth="1280" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProfessorModePage">
     <top>
         <HBox alignment="CENTER" maxWidth="759.0" prefHeight="26.0" prefWidth="759.0" spacing="10">
-            <Text fill="6f0b70" fx:id="loggedIn" text="login !" textAlignment="CENTER" BorderPane.alignment="CENTER">
+            <Text fx:id="loggedIn" fill="6f0b70" text="login !" textAlignment="CENTER" BorderPane.alignment="CENTER">
                 <font>
                     <Font size="32.0" />
                 </font>
             </Text>
-            <TextField fx:id="professorName" promptText="professor name"/>
+            <TextField fx:id="professorName" promptText="professor name" />
             <TextField fx:id="departmentName" promptText="department name" />
-            <Button onMouseClicked="#login" text="login"  />
+            <Button onMouseClicked="#login" text="login" />
         </HBox>
     </top>
     <center>
-        <HBox alignment="CENTER" maxWidth="759.0" prefHeight="26.0" prefWidth="759.0" spacing="10">
+        <HBox alignment="CENTER" maxWidth="1137.0" prefHeight="639.0" prefWidth="1137.0" spacing="10">
             <VBox fx:id="infoVbox" prefHeight="200.0" prefWidth="180.0">
-                <Text fill="6f0b70" text="professor info" textAlignment="CENTER" wrappingWidth="180">
-                    <font>
-                        <Font size="12.0" />
-                    </font>
-                </Text>
+            <Label alignment="CENTER" prefHeight="31.0" prefWidth="206.0" text="professor info" textAlignment="CENTER">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
                 <TextArea fx:id="professorInfoArea" prefHeight="663.0" prefWidth="180.0" />
             </VBox>
             <VBox fx:id="allProfessorVbox" prefHeight="200.0" prefWidth="180.0">
-                <Text fill="6f0b70" text="all professors" textAlignment="CENTER" wrappingWidth="180">
-                    <font>
-                        <Font size="12.0" />
-                    </font>
-                </Text>
-                <ListView fx:id="allProfessorsList" prefHeight="456.0" prefWidth="180.0" onMousePressed="#showProfessorInfo" />
+            <Label alignment="CENTER" prefHeight="31.0" prefWidth="206.0" text="all professors " textAlignment="CENTER">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+                <ListView fx:id="allProfessorsList" onMousePressed="#showProfessorInfo" prefHeight="456.0" prefWidth="180.0" />
                 <TextArea fx:id="allProfessorsInfoArea" prefHeight="187.0" prefWidth="180.0" />
             </VBox>
-            <VBox fx:id="coursesVbox" prefHeight="200.0" prefWidth="180.0">
-                <Text fill="6f0b70" text="course panel" textAlignment="CENTER" wrappingWidth="180">
-                    <font>
-                        <Font size="12.0" />
-                    </font>
-                </Text>
-                <ListView fx:id="coursesList" prefHeight="712.0" prefWidth="180.0" onMousePressed="#showCourseInfo" />
+            <VBox fx:id="coursesVbox" prefHeight="639.0" prefWidth="200.0">
+            <Label alignment="CENTER" prefHeight="26.0" prefWidth="268.0" text="course panel" textAlignment="CENTER">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+                <ListView fx:id="coursesList" onMousePressed="#showCourseInfo" prefHeight="712.0" prefWidth="180.0" />
                 <TextField fx:id="courseName" promptText="course name" />
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="choose credit :" />
-                <ChoiceBox fx:id="courseUnit" prefHeight="26.0" prefWidth="183.0" />
-                <Button  mnemonicParsing="false" prefHeight="26.0" prefWidth="188.0" text="+add new course" textFill="#1197a1" onAction="#addCourse" />
+            <Label alignment="CENTER" prefHeight="31.0" prefWidth="206.0" text="choose credit :" textAlignment="CENTER">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+                <ChoiceBox fx:id="courseUnit" prefHeight="26.0" prefWidth="218.0" />
+                <Button mnemonicParsing="false" onAction="#addCourse" prefHeight="26.0" prefWidth="188.0" text="+add new course" textFill="#1197a1" />
             </VBox>
             <VBox fx:id="courseInfoPanel" prefHeight="656.0" prefWidth="186.0">
                 <children>
-                    <Text fill="#6f0b70" strokeType="OUTSIDE" strokeWidth="0.0" text="course info panel" textAlignment="CENTER" wrappingWidth="197.21630859375" />
+               <Label alignment="CENTER" prefHeight="31.0" prefWidth="206.0" text="course info panel" textAlignment="CENTER">
+                  <font>
+                     <Font size="20.0" />
+                  </font>
+               </Label>
                     <TextArea fx:id="courseInfoArea" prefHeight="121.0" prefWidth="198.0" />
                     <ListView fx:id="courseStudentsList" prefHeight="454.0" prefWidth="198.0" />
                     <TextField fx:id="studentName" promptText="student name" />
                     <TextField fx:id="studentId" promptText="student id" />
-                    <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="202.0" text="-remove student from course" textFill="#1197a1" onAction="#removeStudentFromCourse" />
+                    <Button mnemonicParsing="false" onAction="#removeStudentFromCourse" prefHeight="26.0" prefWidth="202.0" text="-remove student from course" textFill="#1197a1" />
                 </children>
             </VBox>
             <VBox fx:id="gradeReportPanel" prefHeight="656.0" prefWidth="185.0">
                 <children>
-                    <Text fill="#6f0b70" strokeType="OUTSIDE" strokeWidth="0.0" text="set mark panel" textAlignment="CENTER" wrappingWidth="197.21630859375" />
+               <Label alignment="CENTER" prefHeight="31.0" prefWidth="206.0" text="set mark panel" textAlignment="CENTER">
+                  <font>
+                     <Font size="20.0" />
+                  </font>
+               </Label>
                     <TextField fx:id="studentName_report" promptText="student name" />
                     <TextField fx:id="studentId_report" promptText="student id" />
                     <TextField fx:id="courseName_report" promptText="course name" />
                     <TextField fx:id="score" promptText="score" />
-                    <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="208.0" text="set mark" textFill="#1197a1" onAction="#gradeReport" />
+                    <Button mnemonicParsing="false" onAction="#gradeReport" prefHeight="26.0" prefWidth="208.0" text="set mark" textFill="#1197a1" />
                 </children>
             </VBox>
         </HBox>
